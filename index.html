@@ -1,15 +1,41 @@
+<html>
 <head>
-  <link rel="stylesheet" type="text/css" href="my.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-  <script>
-    var audio = new Audio('noot-cena.mp3');
-  </script>
 
-  <div class="round-button centered">
-    <div class="round-button-circle">
-      <a href="#" onclick="audio.play()"  class="round-button">WOW</a>
+    <script>
+        var noot = new Audio('sounds/noot.mp3');
+        var jpeg = new Audio('sounds/jpeg.mp3');
+        var bruh = new Audio('sounds/bruh.mp3');
+    </script>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <a href="#" onclick="noot.play();">
+                    <div class="responsive-circle color1-circle">
+                        <div class="circle-inner">NOOT</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <a href="#" onclick="jpeg.play();">
+                    <div class="responsive-circle color2-circle">
+                        <div class="circle-inner">JPEG</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <a href="#" onclick="bruh.play();">
+                    <div class="responsive-circle color3-circle">
+                        <div class="circle-inner">BRUH</div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
+</html>
