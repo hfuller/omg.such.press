@@ -1,0 +1,28 @@
+.btn {
+	display:inline-block;
+	height:250px;
+	width:250px;
+	border-radius:50%;
+	background-color:#acf;
+	
+	font-family:sans-serif;
+	font-size:40px;
+	font-weight:bold;
+	line-height:250px;
+	text-align:center;
+	text-transform:uppercase;
+	
+	border:10px solid #57a;
+	cursor:pointer;
+
+	margin:5px;
+}
+.btn:hover {
+	background-color:#9be;
+}
+.btn:active {
+	background-color:#79c;
+}
+#btns {
+	text-align:center;
+}
