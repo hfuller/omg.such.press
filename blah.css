@@ -17,6 +17,10 @@
 	cursor:pointer;
 	user-select:none;
 	-moz-user-select:none;
+	
+	/*override default styling of the A tag*/
+	color:black;
+	text-decoration:none;
 
 	margin:5px;
 }

@@ -7,20 +7,37 @@
 <body>
 
 	<div id="btns">
-		<!--<a class="btn" id="ooouuu" onclick="new Audio('sounds/ooouuu.mp3').play();">ooouuu</a>-->
 	</div>
 
  	<script>
 		let doit = function() {
 			new Audio("sounds/" + this.id + ".mp3").play();
+			return false;
 		};
-		for ( title of ["nyer", "ooouuu", "oouaaghh", "geoff", "nathan", "disqual", "rekt son", "upgrayedd", "noot", "jpeg", "bruh", "those", "thoooose", "dank", "cena", "cena dank", "cena a cap", "price", "swed", "code", "a ha ha ha", "pizza", "p i zz a"] ) {
+		let titles = ["nyer", "ooouuu", "oouaaghh", "geoff", "nathan", "disqual", "rekt son", "upgrayedd", "noot", "jpeg", "bruh", "those", "thoooose", "dank", "cena", "cena dank", "cena a cap", "price", "swed", "code", "a ha ha ha", "pizza", "p i zz a"];
+
+		//Get the URL, get the part after the last /, decode any url encodes, and replace dashes with spaces
+		let urlString = document.location.toString();
+		let requestedUrl = decodeURIComponent(urlString.substr(urlString.lastIndexOf('/')+1)).replace(' ', '-');
+		let requestedTitle = requestedUrl.replace('-', ' ');
+		if ( requestedUrl.length > 0 ) {
+			console.log("url path supplied: " + requestedUrl);
+			//the user supplied a URL path, so load only that button
+			titles = [requestedTitle];
+			//clean up the location bar to be url decoded
+			history.replaceState(requestedTitle, requestedTitle, requestedUrl);
+			//and alter the title bar
+			document.title = requestedTitle;
+		}
+
+		for ( title of titles ) {
 			console.log("adding " + title);
 			let el = document.createElement("a");
 			el.className = "btn";
 			el.id = title;
 			el.onclick = doit;
 			el.innerHTML = title;
+			el.href = title.replace(' ', '-');
 			document.getElementById("btns").appendChild(el);
 		}
 	</script>
