@@ -18,8 +18,9 @@
 
 		//Get the URL, get the part after the last /, decode any url encodes, and replace dashes with spaces
 		let urlString = document.location.toString();
-		let requestedUrl = decodeURIComponent(urlString.substr(urlString.lastIndexOf('/')+1)).replace(' ', '-');
-		let requestedTitle = requestedUrl.replace('-', ' ');
+		//We have to use a regexp replace so we can supply the 'g' argument, to replace all instances.
+		let requestedUrl = decodeURIComponent(urlString.substr(urlString.lastIndexOf('/')+1)).replace(new RegExp(' ', 'g'), '-');
+		let requestedTitle = requestedUrl.replace(new RegExp('-', 'g'), ' ');
 		if ( requestedUrl.length > 0 ) {
 			console.log("url path supplied: " + requestedUrl);
 			//the user supplied a URL path, so load only that button
@@ -37,7 +38,7 @@
 			el.id = title;
 			el.onclick = doit;
 			el.innerHTML = title;
-			el.href = title.replace(' ', '-');
+			el.href = title.replace(new RegExp(' ', 'g'), '-');
 			document.getElementById("btns").appendChild(el);
 		}
 	</script>
