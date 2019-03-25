@@ -23,7 +23,7 @@
 		if ( requestedUrl.length > 0 ) {
 			console.log("url path supplied: " + requestedUrl);
 			//the user supplied a URL path, so load only that button
-			titles = [requestedTitle];
+			titles = requestedTitle.split(",");
 			//clean up the location bar to be url decoded
 			history.replaceState(requestedTitle, requestedTitle, requestedUrl);
 			//and alter the title bar
