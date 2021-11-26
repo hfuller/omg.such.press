@@ -33,3 +33,11 @@
 #btns {
 	text-align:center;
 }
+
+/*dark mode*/
+@media (prefers-color-scheme: dark) {
+	html {
+		background-color:#003;
+	}
+}
+
