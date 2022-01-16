@@ -34,6 +34,11 @@
 	text-align:center;
 }
 
+/*Hide buttons while they are still in development*/
+.dev {
+	display:none;
+}
+
 /*dark mode*/
 @media (prefers-color-scheme: dark) {
 	html {

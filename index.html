@@ -6,11 +6,19 @@
 <body>
 
 	<div id="btns">
+		<a class="btn utility dev" id="loading">Loading</a>
 	</div>
 
  	<script>
+		let dev = function() {
+			for ( e of document.getElementsByClassName("dev") ) {
+				e.style.display = "inline-block";
+			}
+			console.log("Welcome to dev mode.");
+		}
 		let doit = function() {
 			new Audio("sounds/" + this.id + ".mp3").play();
+			console.log("Played " + this.id);
 			return false;
 		};
 		let titles = [
@@ -50,6 +58,8 @@
 			el.href = title.replace(new RegExp(' ', 'g'), '-');
 			document.getElementById("btns").appendChild(el);
 		}
+
+		console.log("Loading done. To enter dev mode, type dev()");
 	</script>
 
    
