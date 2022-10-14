@@ -17,8 +17,14 @@
 			}
 			console.log("Welcome to dev mode.");
 		}
+		let audio;
 		let doit = function() {
-			new Audio("sounds/" + this.id + ".mp3").play();
+			try {
+				audio.pause();
+		    }
+			catch {}
+			audio = new Audio("sounds/" + this.id + ".mp3");
+			audio.play();
 			console.log("Played " + this.id);
 			return false;
 		};
