@@ -4,7 +4,7 @@
 	width:250px;
 	border-radius:50%;
 	background-color:#acf;
-	
+
 	font-family:sans-serif;
 	font-size:36px;
 	font-weight:bold;
@@ -12,13 +12,13 @@
 	text-align:center;
 	text-transform:uppercase;
 	overflow:hidden;
-	
+
 	border:10px solid #57a;
 	cursor:pointer;
 	user-select:none;
 	-moz-user-select:none;
 	touch-action:manipulation; /*disable double tap to zoom*/
-	
+
 	/*override default styling of the A tag*/
 	color:black;
 	text-decoration:none;
@@ -46,4 +46,3 @@
 		background-color:#003;
 	}
 }
-
