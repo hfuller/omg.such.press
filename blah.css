@@ -17,6 +17,7 @@
 	cursor:pointer;
 	user-select:none;
 	-moz-user-select:none;
+	touch-action:manipulation; /*disable double tap to zoom*/
 	
 	/*override default styling of the A tag*/
 	color:black;

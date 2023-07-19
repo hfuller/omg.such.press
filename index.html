@@ -3,6 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="blah.css">
+
+	<meta name="description" content="Smash that mf button">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Smash that mf button">
+	<meta property="og:image" content="fridge.jpg">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:description" content="Smash that mf button">
+	<meta property="twitter:image" content="fridge.jpg">
 </head>
 <body>
 
@@ -29,12 +41,10 @@
 			return false;
 		};
 		let titles = [
-			"nft", "jpeg", "connor", "tyler", "richard", "geoff", "nathan", 	"let die", "get out", "kill" , "gamer", "shheeeeeit", "420", "uwu", "dank joke", "dongers", "fart", "faarrt", "what else", "lil game", "ohohoho", "damn son", "honk", "nut", "butt", "dink dink", "fail horn", "nyer", "n n nyer", "bruh", "continued", "stop", "ha", "got eem", "ooouuu", "oouaaghh", "disqual", "rekt son", "tada", "crickets", "point", "noot", "r2d2", "item", "mail", 
+			"another", "light work", "little kick", "life pts", "low bat", "level up", "i forgor", "i rember", "nft", "jpeg", "connor", "tyler", "richard", "geoff", "nathan", 	"let die", "get out", "kill" , "gamer", "shheeeeeit", "420", "uwu", "dank joke", "dongers", "fart", "faarrt", "what else", "lil game", "ohohoho", "damn son", "honk", "nut", "butt", "dink dink", "fail horn", "nyer", "n n nyer", "bruh", "continued", "stop", "ha", "got eem", "ooouuu", "oouaaghh", "disqual", "rekt son", "tada", "crickets", "point", "noot", "r2d2", "item", "mail", 
 			"hardcopy", "senpai", "those", "thoooose", "dank", "cena", "cena dank", "noot cena", "cena a cap", "dino", "yes yes", "pizza", "p i zz a", "upgrayedd", "code", "a ha ha ha",
-			"eat a dick", "god damn", "hot shit", "stabim", "crash", "again", "flocka", "super", "yeah boy", 
-			"swed", "dankengine", "weedtime", "weedsper"
+			"eat a dick", "god damn", "hot shit", "stabim", "crash", "again", "flocka", "super", "yeah boy","swed", "dankengine", "weedtime", "weedsper"
 		];
-			
 
 		//Get the URL, get the part after the last /, decode any url encodes, and replace dashes with spaces
 		let urlString = document.location.toString();
@@ -42,7 +52,7 @@
 		let requestedUrl = decodeURIComponent(urlString.substr(urlString.lastIndexOf('/')+1)).replace(new RegExp(' ', 'g'), '-');
 		//Strip everything after the question mark, because Facebook will add "?fbclid=..." parameters and such
 		requestedUrl = requestedUrl.replace(new RegExp('\\?.*$'), '');
-		
+
 		let requestedTitle = requestedUrl.replace(new RegExp('-', 'g'), ' ');
 
 		if ( requestedUrl.length > 0 ) {
@@ -69,6 +79,6 @@
 		console.log("Loading done. To enter dev mode, type dev()");
 	</script>
 
-   
+
 </body>
 </html>
