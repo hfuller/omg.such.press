@@ -19,7 +19,7 @@
 <body>
 
 	<div id="btns">
-		<a class="btn utility dev" id="loading">Loading</a>
+        <label class="option" for="option-multi">Multi</label><input type="checkbox" class="btn utility option dev" name="option-multi">
 	</div>
 
  	<script>
@@ -32,7 +32,9 @@
 		let audio;
 		let doit = function() {
 			try {
-				audio.pause();
+                if ( !(options.hasOwnProperty("option-multi") && options["option-multi"] === true) ) {
+                    audio.pause();
+                }
 		    }
 			catch {}
 			audio = new Audio("sounds/" + this.id + ".mp3");
@@ -40,17 +42,43 @@
 			console.log("Played " + this.id);
 			return false;
 		};
+
+        var readOptions = function() {
+            console.log("Loading user's config");
+            options = { ...localStorage };
+            for ( let option in options ) {
+                options[option] = JSON.parse(options[option]);
+            }
+            console.log(options);
+            for ( let el of document.getElementsByTagName("input") ) {
+                if ( options.hasOwnProperty(el.name) ) {
+                    el.checked = options[el.name];
+                }
+            }
+        };
+        var writeOptions = function() {
+            console.log("Writing user's config");
+            options = [];
+            for ( let el of document.getElementsByTagName("input") ) {
+                localStorage.setItem(el.name, el.checked);
+            }
+        };
+
 		let titles = [
 			"another", "light work", "little kick", "life pts", "low bat", "level up", "i forgor", "i rember", "nft", "jpeg", "connor", "tyler", "richard", "geoff", "nathan", 	"let die", "get out", "kill" , "gamer", "shheeeeeit", "420", "uwu", "dank joke", "dongers", "fart", "faarrt", "what else", "lil game", "ohohoho", "damn son", "honk", "nut", "butt", "dink dink", "fail horn", "nyer", "n n nyer", "bruh", "continued", "stop", "ha", "got eem", "ooouuu", "oouaaghh", "disqual", "rekt son", "tada", "crickets", "point", "noot", "r2d2", "item", "mail", 
 			"hardcopy", "senpai", "those", "thoooose", "dank", "cena", "cena dank", "noot cena", "cena a cap", "dino", "yes yes", "pizza", "p i zz a", "upgrayedd", "code", "a ha ha ha",
 			"eat a dick", "god damn", "hot shit", "stabim", "crash", "again", "flocka", "super", "yeah boy","swed", "dankengine", "weedtime", "weedsper"
 		];
 
+        readOptions();
+
 		//Get the URL, get the part after the last /, decode any url encodes, and replace dashes with spaces
 		let urlString = document.location.toString();
 		//We have to use a regexp replace so we can supply the 'g' argument, to replace all instances.
 		let requestedUrl = decodeURIComponent(urlString.substr(urlString.lastIndexOf('/')+1)).replace(new RegExp(' ', 'g'), '-');
 		//Strip everything after the question mark, because Facebook will add "?fbclid=..." parameters and such
+        let args = requestedUrl.replace(new RegExp('.*\\?'), '');
+        console.log("Args: " + args);
 		requestedUrl = requestedUrl.replace(new RegExp('\\?.*$'), '');
 
 		let requestedTitle = requestedUrl.replace(new RegExp('-', 'g'), ' ');
@@ -64,6 +92,17 @@
 			//and alter the title bar
 			document.title = requestedTitle;
 		}
+
+        if ( args == "options" ) {
+            console.log("Showing options due to user request.");
+            for ( let el of document.getElementsByClassName("option") ) {
+                el.style.display = "inline-block";
+                el.addEventListener('click', function() {
+                    writeOptions();
+                    readOptions();
+                });
+            }
+        }
 
 		for ( title of titles ) {
 			console.log("adding " + title);

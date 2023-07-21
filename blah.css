@@ -1,10 +1,4 @@
-.btn {
-	display:inline-block;
-	height:250px;
-	width:250px;
-	border-radius:50%;
-	background-color:#acf;
-
+.btn, label {
 	font-family:sans-serif;
 	font-size:36px;
 	font-weight:bold;
@@ -12,6 +6,19 @@
 	text-align:center;
 	text-transform:uppercase;
 	overflow:hidden;
+}
+label {
+    position:absolute;
+    width:280px;
+    line-height:280px;
+    pointer-events:none;
+}
+.btn {
+	display:inline-block;
+	height:250px;
+	width:250px;
+	border-radius:50%;
+	background-color:#acf;
 
 	border:10px solid #57a;
 	cursor:pointer;
@@ -39,6 +46,25 @@
 .dev {
 	display:none;
 }
+/*Hide options til they want to see them.*/
+.option {
+	display:none;
+}
+input.btn {
+    appearance:none;
+    box-sizing:content-box;
+    background-color:#fac;
+}
+input.btn:hover {
+    background-color:#f9b;
+}
+input.btn:checked {
+    background-color:#cfa;
+}
+input.btn:checked:hover {
+    background-color:#af8;
+}
+
 
 /*dark mode*/
 @media (prefers-color-scheme: dark) {
